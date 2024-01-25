@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-color: #f1f5f9;
+    position: relative;
+}
+
+.clock-container{
+    width: 600px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.clock-container::before{
+    content: '';
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: -75px;
+    left: -75px;
+    border-radius: 25px;
+    background-color: #38bdf8;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    z-index: -1;
+    animation: downup infinite linear 5s;
+}
+
+@keyframes downup {
+    0%{
+        transform: translateY(0%);
+    }
+    50%{
+       transform: translateY(100%); 
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+
+.clock-container::after{
+    content: '';
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -75px;
+    right: -75px;
+    background-color: #818cf8;
+    z-index: -1;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    animation: updown infinite linear 5s;
+}
+
+@keyframes updown {
+    0%{
+        transform: translateY(0%);
+    }
+    50%{
+       transform: translateY(-100%); 
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+
+.clock{
+    width: 100%;
+    height: 100%;
+    background-color: #d946ef;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.clock::after{
+    content: '';
+    height: 4px;
+    position: absolute;
+    top: 0px;
+    background-color: #000;
+    animation: lr infinite linear 5s;
+}
+
+@keyframes lr {
+    0%{
+        width: 0%;
+    }
+    50%{
+        width: 60%;
+    }
+    100%{
+        width: 0%;
+    }
+}
+.clock::before{
+    content: '';
+    height: 4px;
+    position: absolute;
+    bottom: 0px;
+    background-color: #000;
+    animation: rl infinite linear 5s;
+}
+
+@keyframes rl {
+    0%{
+        width: 60%;
+    }
+    50%{
+        width: 0%;
+    }
+    100%{
+        width: 60%;
+    }
+}
+
+.clock span{
+    font-size: 100px;
+    position: relative;
+}
+
+.clock span::after{
+    font-size: 16px;
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #f8fafc;
+}
+
+#hour::after{
+    content: "HOUR";
+
+}
+#minute::after{
+    content: "MINUTE";
+}
+#second::after{
+    content: "SECOND";
+}
+
+
+
+
+
